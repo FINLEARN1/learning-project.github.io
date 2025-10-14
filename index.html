@@ -1,218 +1,54 @@
-// FINANCIAL_DATA.js
-// Drop generated_financial_terms.json (array of term objects) next to this file to extend terms to 1000+.
-// This file exports FINANCIAL_DATA exactly matching your original schema.
-
-const BASE_FINANCIAL_DATA = {
-  terms: [
-    {"id":1,"term":"Accounts Payable","category":"Accounting","level":"Beginner","definition":"Money owed to suppliers","detailed":"Short-term liability on balance sheet","example":"Order $10,000 inventory with Net 30 terms","keywords":"payable ap vendor","relatedTerms":[2]},
-    {"id":2,"term":"Accounts Receivable","category":"Accounting","level":"Beginner","definition":"Money owed by customers","detailed":"Current asset representing future cash","example":"Sell $5,000 products with 30-day terms","keywords":"receivable ar customer","relatedTerms":[1]},
-    {"id":3,"term":"Balance Sheet","category":"Accounting","level":"Beginner","definition":"Financial statement showing assets, liabilities, equity","detailed":"Assets = Liabilities + Equity","example":"Assets $350K = Liabilities $200K + Equity $150K","keywords":"balance sheet statement","relatedTerms":[1,2]},
-    {"id":4,"term":"Income Statement","category":"Accounting","level":"Beginner","definition":"Statement showing revenues and expenses","detailed":"Also called P&L","example":"Revenue $500K minus expenses","keywords":"income statement profit loss","relatedTerms":[3]},
-    {"id":5,"term":"Cash Flow Statement","category":"Accounting","level":"Intermediate","definition":"Statement showing cash movements","detailed":"Operating, investing, financing","example":"Operating $100K, investing -$50K","keywords":"cash flow operating","relatedTerms":[3,4]},
-    {"id":6,"term":"Valuation","category":"Shark Tank","level":"Beginner","definition":"Company total worth estimate","detailed":"Investment divided by equity percent","example":"$200K for 10% = $2M valuation","keywords":"valuation worth value","relatedTerms":[7]},
-    {"id":7,"term":"Equity Deal","category":"Shark Tank","level":"Beginner","definition":"Investment for ownership","detailed":"Most common deal type","example":"Invest $100K for 20% equity","keywords":"equity deal ownership","relatedTerms":[6]},
-    {"id":8,"term":"Burn Rate","category":"Shark Tank","level":"Intermediate","definition":"Cash spent monthly","detailed":"Shows runway length","example":"Expenses $50K, revenue $30K","keywords":"burn rate cash spending","relatedTerms":[9]},
-    {"id":9,"term":"Runway","category":"Shark Tank","level":"Intermediate","definition":"Months until out of cash","detailed":"Cash divided by burn rate","example":"$120K cash, $20K burn = 6 months","keywords":"runway months survival","relatedTerms":[8]},
-    {"id":10,"term":"Stock","category":"Investing","level":"Beginner","definition":"Share of ownership","detailed":"Common stock has voting rights","example":"Buy 100 shares Apple at $150","keywords":"stock share equity","relatedTerms":[11]},
-    {"id":11,"term":"Bond","category":"Investing","level":"Beginner","definition":"Debt security","detailed":"Fixed income investment","example":"Buy $10K bond at 5% interest","keywords":"bond debt income","relatedTerms":[10]},
-    {"id":12,"term":"ETF","category":"Investing","level":"Beginner","definition":"Exchange-Traded Fund","detailed":"Trades like stock, holds basket","example":"Buy S&P 500 ETF","keywords":"etf fund index","relatedTerms":[10]},
-    {"id":13,"term":"Current Ratio","category":"Analysis","level":"Intermediate","definition":"Current Assets divided by Current Liabilities","detailed":"Measures liquidity","example":"$300K assets divided by $150K","keywords":"current ratio liquidity","relatedTerms":[14]},
-    {"id":14,"term":"ROE","category":"Analysis","level":"Intermediate","definition":"Return on Equity","detailed":"Net income divided by equity","example":"$50K income divided by $250K","keywords":"roe return equity","relatedTerms":[13]},
-    {"id":15,"term":"GST","category":"GST & Taxation","level":"Beginner","definition":"Goods and Services Tax","detailed":"Comprehensive indirect tax","example":"18% GST on $1000 = $180","keywords":"gst goods services","relatedTerms":[16]},
-    {"id":16,"term":"TDS","category":"GST & Taxation","level":"Beginner","definition":"Tax Deduction at Source","detailed":"Tax deducted before payment","example":"Deduct 10% TDS on $10,000","keywords":"tds tax deduction","relatedTerms":[15]},
-    {"id":17,"term":"Bitcoin","category":"Cryptocurrency","level":"Beginner","definition":"First decentralized cryptocurrency","detailed":"Digital currency using blockchain","example":"Buy 0.5 Bitcoin at $40,000","keywords":"bitcoin btc crypto","relatedTerms":[18]},
-    {"id":18,"term":"Blockchain","category":"Cryptocurrency","level":"Intermediate","definition":"Distributed ledger technology","detailed":"Immutable chain of blocks","example":"Bitcoin uses blockchain","keywords":"blockchain ledger","relatedTerms":[17]},
-    {"id":19,"term":"Mortgage","category":"Real Estate","level":"Beginner","definition":"Loan secured by property","detailed":"15 or 30-year typical","example":"$300K mortgage at 6%","keywords":"mortgage loan property","relatedTerms":[20]},
-    {"id":20,"term":"Down Payment","category":"Real Estate","level":"Beginner","definition":"Initial property payment","detailed":"Usually 10-20% of price","example":"20% down on $400K = $80K","keywords":"down payment deposit","relatedTerms":[19]},
-    {"id":21,"term":"Budget","category":"Personal Finance","level":"Beginner","definition":"Plan for income and expenses","detailed":"Tracks spending and savings","example":"50% needs, 30% wants, 20% savings","keywords":"budget plan spending","relatedTerms":[22]},
-    {"id":22,"term":"401k","category":"Personal Finance","level":"Beginner","definition":"Employer retirement plan","detailed":"Tax-advantaged savings","example":"Contribute 6%, employer matches 3%","keywords":"401k retirement savings","relatedTerms":[21]},
-    {"id":23,"term":"GDP","category":"Economics","level":"Beginner","definition":"Gross Domestic Product","detailed":"Total value of goods and services","example":"US GDP $25 trillion annually","keywords":"gdp gross domestic","relatedTerms":[24]},
-    {"id":24,"term":"Inflation","category":"Economics","level":"Beginner","definition":"Rising prices over time","detailed":"Reduces purchasing power","example":"3% inflation annually","keywords":"inflation prices rising","relatedTerms":[23]},
-    {"id":25,"term":"Import","category":"International Trade","level":"Beginner","definition":"Bringing goods into country","detailed":"Purchasing from foreign suppliers","example":"Import electronics from China","keywords":"import foreign goods","relatedTerms":[26]},
-    {"id":26,"term":"Export","category":"International Trade","level":"Beginner","definition":"Sending goods to other countries","detailed":"Selling to foreign buyers","example":"Export wheat to Europe","keywords":"export foreign sales","relatedTerms":[25]},
-    {"id":27,"term":"Assets","category":"Accounting","level":"Beginner","definition":"Resources owned with economic value","detailed":"Current and fixed assets","example":"Cash $50K, Equipment $100K","keywords":"assets resources property","relatedTerms":[3]},
-    {"id":28,"term":"Liabilities","category":"Accounting","level":"Beginner","definition":"Obligations owed to creditors","detailed":"Current and long-term debts","example":"AP $50K, Loan $200K","keywords":"liabilities debt obligations","relatedTerms":[3]},
-    {"id":29,"term":"Equity","category":"Accounting","level":"Beginner","definition":"Owner residual interest","detailed":"Net worth of business","example":"Assets minus Liabilities","keywords":"equity capital ownership","relatedTerms":[3]},
-    {"id":30,"term":"Revenue","category":"Accounting","level":"Beginner","definition":"Income from operations","detailed":"Top line of income statement","example":"Sales revenue $500K","keywords":"revenue sales income","relatedTerms":[4]},
-    {"id":31,"term":"Expenses","category":"Accounting","level":"Beginner","definition":"Costs to earn revenue","detailed":"Operating costs","example":"Salaries $15K, Rent $5K","keywords":"expenses costs operating","relatedTerms":[4]},
-    {"id":32,"term":"Depreciation","category":"Accounting","level":"Intermediate","definition":"Asset cost allocation","detailed":"Non-cash expense over time","example":"$100K machine over 10 years","keywords":"depreciation allocation","relatedTerms":[27]},
-    {"id":33,"term":"GAAP","category":"Accounting","level":"Intermediate","definition":"Generally Accepted Accounting Principles","detailed":"US accounting standards","example":"Follow GAAP for consistency","keywords":"gaap standards principles","relatedTerms":[3]},
-    {"id":34,"term":"Accrual Accounting","category":"Accounting","level":"Intermediate","definition":"Record when transaction occurs","detailed":"Not when cash exchanges","example":"Record sale when made","keywords":"accrual method accounting","relatedTerms":[33]},
-    {"id":35,"term":"Journal Entry","category":"Accounting","level":"Intermediate","definition":"Record of business transaction","detailed":"Debits and credits","example":"Debit Cash, Credit Sales","keywords":"journal entry transaction","relatedTerms":[36]},
-    {"id":36,"term":"General Ledger","category":"Accounting","level":"Intermediate","definition":"Complete transaction record","detailed":"Master accounting record","example":"All accounts in one place","keywords":"general ledger record","relatedTerms":[35]},
-    {"id":37,"term":"Trial Balance","category":"Accounting","level":"Intermediate","definition":"List of account balances","detailed":"Ensures debits equal credits","example":"Total debits $500K equals credits","keywords":"trial balance verify","relatedTerms":[36]},
-    {"id":38,"term":"Cost of Goods Sold","category":"Accounting","level":"Beginner","definition":"Direct production costs","detailed":"COGS for manufactured goods","example":"Materials $200K for products","keywords":"cogs cost goods","relatedTerms":[30]},
-    {"id":39,"term":"Gross Profit","category":"Accounting","level":"Beginner","definition":"Revenue minus COGS","detailed":"Before operating expenses","example":"$500K revenue - $300K COGS","keywords":"gross profit margin","relatedTerms":[30,38]},
-    {"id":40,"term":"Operating Income","category":"Accounting","level":"Intermediate","definition":"Profit from core operations","detailed":"EBIT earnings before interest tax","example":"$200K gross - $150K operating","keywords":"operating income ebit","relatedTerms":[39]},
-    {"id":41,"term":"Net Income","category":"Accounting","level":"Beginner","definition":"Bottom line profit","detailed":"After all expenses","example":"Revenue minus all costs","keywords":"net income profit","relatedTerms":[4]},
-    {"id":42,"term":"Working Capital","category":"Accounting","level":"Intermediate","definition":"Current assets minus current liabilities","detailed":"Short-term financial health","example":"$200K assets - $100K liabilities","keywords":"working capital liquidity","relatedTerms":[27,28]},
-    {"id":43,"term":"Retained Earnings","category":"Accounting","level":"Intermediate","definition":"Cumulative net income kept","detailed":"Not distributed as dividends","example":"$100K income - $30K dividends","keywords":"retained earnings accumulated","relatedTerms":[41]},
-    {"id":44,"term":"Accounts Aging","category":"Accounting","level":"Intermediate","definition":"Overdue receivables report","detailed":"Categorized by age","example":"0-30 days, 31-60 days","keywords":"aging receivables overdue","relatedTerms":[2]},
-    {"id":45,"term":"Bad Debt Expense","category":"Accounting","level":"Intermediate","definition":"Uncollectible receivables cost","detailed":"Write-off expense","example":"Write off $5K uncollectible","keywords":"bad debt expense","relatedTerms":[2]},
-    {"id":46,"term":"Prepaid Expenses","category":"Accounting","level":"Intermediate","definition":"Expenses paid in advance","detailed":"Asset until recognized","example":"Pay $12K annual insurance","keywords":"prepaid expenses advance","relatedTerms":[27]},
-    {"id":47,"term":"Deferred Revenue","category":"Accounting","level":"Intermediate","definition":"Payment before service","detailed":"Liability until earned","example":"Receive $12K subscription upfront","keywords":"deferred revenue unearned","relatedTerms":[28]},
-    {"id":48,"term":"Petty Cash","category":"Accounting","level":"Beginner","definition":"Small cash for minor expenses","detailed":"On-hand miscellaneous fund","example":"Keep $200 petty cash","keywords":"petty cash fund","relatedTerms":[27]},
-    {"id":49,"term":"Bank Reconciliation","category":"Accounting","level":"Intermediate","definition":"Match books to bank statement","detailed":"Identify discrepancies","example":"Book $10K, bank $9.5K","keywords":"bank reconciliation match","relatedTerms":[36]},
-    {"id":50,"term":"Fixed Assets","category":"Accounting","level":"Beginner","definition":"Long-term physical assets","detailed":"Property, plant, equipment","example":"Building, machinery, vehicles","keywords":"fixed assets property","relatedTerms":[27]},
-    {"id":51,"term":"Current Assets","category":"Accounting","level":"Beginner","definition":"Assets convertible within year","detailed":"Cash, AR, inventory","example":"Cash $50K, AR $30K","keywords":"current assets liquid","relatedTerms":[27]},
-    {"id":52,"term":"Current Liabilities","category":"Accounting","level":"Beginner","definition":"Debts due within year","detailed":"AP, short-term loans","example":"AP $40K, credit card $10K","keywords":"current liabilities short","relatedTerms":[28]},
-    {"id":53,"term":"Long-term Liabilities","category":"Accounting","level":"Intermediate","definition":"Debts due after one year","detailed":"Mortgages, bonds payable","example":"Mortgage $200K, bonds $100K","keywords":"long term liabilities debt","relatedTerms":[28]},
-    {"id":54,"term":"Dividends","category":"Accounting","level":"Beginner","definition":"Profit distribution to shareholders","detailed":"Reduces retained earnings","example":"Declare $2 per share dividend","keywords":"dividends distribution shareholders","relatedTerms":[43]},
-    {"id":55,"term":"Closing Entries","category":"Accounting","level":"Advanced","definition":"Reset temporary accounts","detailed":"Transfer to retained earnings","example":"Close revenue and expenses","keywords":"closing entries period end","relatedTerms":[43]},
-    {"id":56,"term":"Chart of Accounts","category":"Accounting","level":"Intermediate","definition":"Organized list of accounts","detailed":"Numbered system","example":"1000-1999 Assets, 2000-2999 Liabilities","keywords":"chart accounts organization","relatedTerms":[36]},
-    {"id":57,"term":"Double Entry Bookkeeping","category":"Accounting","level":"Intermediate","definition":"Every transaction affects two accounts","detailed":"Fundamental principle","example":"Debit one, credit another","keywords":"double entry bookkeeping","relatedTerms":[35]},
-    {"id":58,"term":"Credit","category":"Accounting","level":"Beginner","definition":"Right side of account","detailed":"Increases liabilities and equity","example":"Credit sales revenue account","keywords":"credit accounting entry","relatedTerms":[59]},
-    {"id":59,"term":"Debit","category":"Accounting","level":"Beginner","definition":"Left side of account","detailed":"Increases assets and expenses","example":"Debit cash account","keywords":"debit accounting entry","relatedTerms":[58]},
-    {"id":60,"term":"Accounting Equation","category":"Accounting","level":"Beginner","definition":"Assets = Liabilities + Equity","detailed":"Foundation of accounting","example":"$500K = $300K + $200K","keywords":"accounting equation fundamental","relatedTerms":[27,28,29]},
-    {"id":61,"term":"Fiscal Year","category":"Accounting","level":"Beginner","definition":"12-month financial reporting period","detailed":"May differ from calendar","example":"Fiscal year July 1 - June 30","keywords":"fiscal year period","relatedTerms":[3]},
-    {"id":62,"term":"Audit","category":"Accounting","level":"Advanced","definition":"Independent examination of records","detailed":"Ensures accuracy and compliance","example":"External auditor reviews statements","keywords":"audit examination review","relatedTerms":[33]},
-    {"id":63,"term":"Inventory","category":"Accounting","level":"Beginner","definition":"Goods held for sale","detailed":"Current asset","example":"Inventory value $30K","keywords":"inventory goods stock","relatedTerms":[51]},
-    {"id":64,"term":"Inventory Valuation","category":"Accounting","level":"Advanced","definition":"Method of assigning costs","detailed":"FIFO, LIFO, weighted average","example":"FIFO first items sold first","keywords":"inventory valuation method","relatedTerms":[63]},
-    {"id":65,"term":"Goodwill","category":"Accounting","level":"Advanced","definition":"Excess paid in acquisition","detailed":"Intangible asset","example":"Pay $500K for $400K company","keywords":"goodwill intangible acquisition","relatedTerms":[27]},
-    {"id":66,"term":"Amortization","category":"Accounting","level":"Intermediate","definition":"Intangible asset write-off","detailed":"Similar to depreciation","example":"Patent $50K over 5 years","keywords":"amortization intangible","relatedTerms":[32]},
-    {"id":67,"term":"Accrued Expense","category":"Accounting","level":"Intermediate","definition":"Expense incurred not yet paid","detailed":"Liability on balance sheet","example":"Owe $5K salary at month end","keywords":"accrued expense liability","relatedTerms":[31]},
-    {"id":68,"term":"Capital Expenditure","category":"Accounting","level":"Intermediate","definition":"Spending on long-term assets","detailed":"CapEx for buildings, equipment","example":"Spend $500K on factory equipment","keywords":"capex capital expenditure","relatedTerms":[50]},
-    {"id":69,"term":"Operating Expense","category":"Accounting","level":"Beginner","definition":"Regular business costs","detailed":"Rent, salaries, utilities","example":"Monthly OpEx $50K","keywords":"operating expense opex","relatedTerms":[31]},
-    {"id":70,"term":"Contra Account","category":"Accounting","level":"Advanced","definition":"Account offsetting another","detailed":"Reduces paired account balance","example":"Accumulated depreciation","keywords":"contra account offset","relatedTerms":[32]},
-    {"id":71,"term":"Materiality","category":"Accounting","level":"Advanced","definition":"Significance of information","detailed":"Whether error impacts decisions","example":"$100 error immaterial for $10M company","keywords":"materiality significance","relatedTerms":[33]},
-    {"id":72,"term":"Going Concern","category":"Accounting","level":"Advanced","definition":"Assumption company continues","detailed":"Affects asset valuation","example":"Assume business operates indefinitely","keywords":"going concern assumption","relatedTerms":[33]},
-    {"id":73,"term":"Matching Principle","category":"Accounting","level":"Intermediate","definition":"Match expenses to revenues","detailed":"Core of accrual accounting","example":"Record COGS when sale recorded","keywords":"matching principle accrual","relatedTerms":[34]},
-    {"id":74,"term":"Revenue Recognition","category":"Accounting","level":"Advanced","definition":"When to record revenue","detailed":"When earned and realizable","example":"Recognize when service completed","keywords":"revenue recognition principle","relatedTerms":[30]},
-    {"id":75,"term":"Full Disclosure","category":"Accounting","level":"Advanced","definition":"Report all relevant information","detailed":"Transparency in reporting","example":"Disclose pending lawsuits","keywords":"full disclosure transparency","relatedTerms":[33]},
-    {"id":76,"term":"Book Value","category":"Accounting","level":"Intermediate","definition":"Asset value on balance sheet","detailed":"Cost minus accumulated depreciation","example":"$100K cost - $40K depreciation = $60K","keywords":"book value carrying","relatedTerms":[32]},
-    {"id":77,"term":"CAC","category":"Shark Tank","level":"Intermediate","definition":"Customer Acquisition Cost","detailed":"Marketing and sales divided by new customers","example":"$10K spend, 500 customers = $20 CAC","keywords":"cac customer acquisition","relatedTerms":[78]},
-    {"id":78,"term":"LTV","category":"Shark Tank","level":"Intermediate","definition":"Lifetime Value of customer","detailed":"Total profit from customer relationship","example":"Customer spends $50, 10 orders = $500 LTV","keywords":"ltv lifetime value","relatedTerms":[77]},
-    {"id":79,"term":"MRR","category":"Shark Tank","level":"Intermediate","definition":"Monthly Recurring Revenue","detailed":"Predictable monthly income","example":"100 subscribers at $50 = $5,000 MRR","keywords":"mrr monthly recurring","relatedTerms":[80]},
-    {"id":80,"term":"ARR","category":"Shark Tank","level":"Intermediate","definition":"Annual Recurring Revenue","detailed":"MRR multiplied by 12","example":"$5,000 MRR x 12 = $60,000 ARR","keywords":"arr annual recurring","relatedTerms":[79]},
-    {"id":81,"term":"Churn Rate","category":"Shark Tank","level":"Intermediate","definition":"Percentage of customers lost","detailed":"Monthly or annual churn","example":"Lose 10 of 100 customers = 10% churn","keywords":"churn rate customer loss","relatedTerms":[79]},
-    {"id":82,"term":"Royalty Deal","category":"Shark Tank","level":"Intermediate","definition":"Investor receives sales percentage","detailed":"Per-unit or revenue percentage","example":"$75K for $3 per unit until repaid","keywords":"royalty deal sales","relatedTerms":[7]},
-    {"id":83,"term":"EBITDA","category":"Shark Tank","level":"Advanced","definition":"Earnings Before Interest, Taxes, Depreciation, Amortization","detailed":"Operating profitability measure","example":"Net $50K + I+T+D+A = $95K EBITDA","keywords":"ebitda earnings operating","relatedTerms":[40]},
-    {"id":84,"term":"Pre-Money Valuation","category":"Shark Tank","level":"Advanced","definition":"Company value before investment","detailed":"Post-money minus investment","example":"$3M post - $1M investment = $2M pre","keywords":"pre money valuation","relatedTerms":[85]},
-    {"id":85,"term":"Post-Money Valuation","category":"Shark Tank","level":"Advanced","definition":"Company value after investment","detailed":"Pre-money plus investment","example":"$2M pre + $1M investment = $3M post","keywords":"post money valuation","relatedTerms":[84]},
-    {"id":86,"term":"Series A Funding","category":"Shark Tank","level":"Advanced","definition":"First major VC round","detailed":"After seed funding","example":"Raise $5M Series A at $20M valuation","keywords":"series a funding venture","relatedTerms":[87]},
-    {"id":87,"term":"Series B Funding","category":"Shark Tank","level":"Advanced","definition":"Second major VC round","detailed":"Scale and expand operations","example":"Raise $15M Series B at $50M valuation","keywords":"series b funding growth","relatedTerms":[86]},
-    {"id":88,"term":"Seed Funding","category":"Shark Tank","level":"Intermediate","definition":"Initial capital to start","detailed":"Friends, family, angels","example":"Raise $100K seed round","keywords":"seed funding initial","relatedTerms":[86]},
-    {"id":89,"term":"Angel Investor","category":"Shark Tank","level":"Beginner","definition":"Individual providing startup capital","detailed":"Often first external funding","example":"Angel invests $50K for 5% equity","keywords":"angel investor funding","relatedTerms":[88]},
-    {"id":90,"term":"Venture Capital","category":"Shark Tank","level":"Advanced","definition":"Professional investors funding startups","detailed":"Larger investments, high returns expected","example":"VC firm invests $5M for 20%","keywords":"venture capital vc","relatedTerms":[86]},
-    {"id":91,"term":"Term Sheet","category":"Shark Tank","level":"Advanced","definition":"Investment terms document","detailed":"Non-binding agreement outline","example":"$500K for 15%, 2 board seats","keywords":"term sheet investment","relatedTerms":[90]},
-    {"id":92,"term":"Cap Table","category":"Shark Tank","level":"Advanced","definition":"Capitalization table showing ownership","detailed":"Who owns what percentage","example":"Founder 60%, investors 30%, employees 10%","keywords":"cap table capitalization","relatedTerms":[7]},
-    {"id":93,"term":"Vesting Schedule","category":"Shark Tank","level":"Advanced","definition":"Equity earned over time","detailed":"Typically 4 years with cliff","example":"Earn 25% equity per year","keywords":"vesting schedule equity","relatedTerms":[94]},
-    {"id":94,"term":"Cliff","category":"Shark Tank","level":"Advanced","definition":"Minimum time before vesting","detailed":"Usually 1 year","example":"1-year cliff, then monthly vesting","keywords":"cliff vesting period","relatedTerms":[93]},
-    {"id":95,"term":"Dilution","category":"Shark Tank","level":"Intermediate","definition":"Reduction in ownership percentage","detailed":"When new shares issued","example":"Own 50%, new investor 20%, you now own 40%","keywords":"dilution ownership reduction","relatedTerms":[7]},
-    {"id":96,"term":"Liquidation Preference","category":"Shark Tank","level":"Advanced","definition":"Payout priority in exit","detailed":"Investors paid first","example":"2x preference on $1M investment","keywords":"liquidation preference exit","relatedTerms":[91]},
-    {"id":97,"term":"Anti-Dilution","category":"Shark Tank","level":"Advanced","definition":"Protection against dilution","detailed":"Adjusts price if down round","example":"Get more shares if valuation drops","keywords":"anti dilution protection","relatedTerms":[95]},
-    {"id":98,"term":"Down Round","category":"Shark Tank","level":"Advanced","definition":"Fundraising at lower valuation","detailed":"Sign of struggling company","example":"Series B lower than Series A","keywords":"down round valuation","relatedTerms":[97]},
-    {"id":99,"term":"Up Round","category":"Shark Tank","level":"Intermediate","definition":"Fundraising at higher valuation","detailed":"Sign of growth","example":"Series B at 3x Series A","keywords":"up round valuation","relatedTerms":[98]},
-    {"id":100,"term":"Unicorn","category":"Shark Tank","level":"Intermediate","definition":"Startup valued over $1 billion","detailed":"Rare high-value company","example":"Airbnb became unicorn","keywords":"unicorn billion valuation","relatedTerms":[6]},
-    {"id":101,"term":"Decacorn","category":"Shark Tank","level":"Advanced","definition":"Startup valued over $10 billion","detailed":"Extremely rare","example":"SpaceX is decacorn","keywords":"decacorn ten billion","relatedTerms":[100]},
-    {"id":102,"term":"Exit Strategy","category":"Shark Tank","level":"Advanced","definition":"Plan for investor cash out","detailed":"Acquisition or IPO","example":"Exit via acquisition after 5 years","keywords":"exit strategy acquisition ipo","relatedTerms":[103]},
-    {"id":103,"term":"IPO","category":"Shark Tank","level":"Intermediate","definition":"Initial Public Offering","detailed":"First stock sale to public","example":"Company goes public at $20/share","keywords":"ipo public offering","relatedTerms":[102]},
-    {"id":104,"term":"Bootstrapping","category":"Shark Tank","level":"Beginner","definition":"Building without external funding","detailed":"Using personal savings and revenue","example":"Start with $10K, grow organically","keywords":"bootstrapping self funded","relatedTerms":[88]},
-    {"id":105,"term":"Pivot","category":"Shark Tank","level":"Intermediate","definition":"Fundamental business model change","detailed":"Shift strategy based on learning","example":"Change from B2C to B2B","keywords":"pivot change strategy","relatedTerms":[106]},
-    {"id":106,"term":"Product-Market Fit","category":"Shark Tank","level":"Advanced","definition":"Product satisfies strong demand","detailed":"Customers actively seeking product","example":"High retention, word-of-mouth growth","keywords":"product market fit pmf","relatedTerms":[107]},
-    {"id":107,"term":"Minimum Viable Product","category":"Shark Tank","level":"Intermediate","definition":"Simplest version to test market","detailed":"MVP with core features only","example":"Launch basic app to test demand","keywords":"mvp minimum viable","relatedTerms":[106]},
-    {"id":108,"term":"Traction","category":"Shark Tank","level":"Intermediate","definition":"Evidence of business momentum","detailed":"Revenue, users, growth metrics","example":"Show 20% monthly user growth","keywords":"traction growth momentum","relatedTerms":[79]},
-    {"id":109,"term":"Unit Economics","category":"Shark Tank","level":"Advanced","definition":"Profit per unit or customer","detailed":"Revenue minus cost per unit","example":"Sell $50, cost $30 = $20 profit","keywords":"unit economics profit","relatedTerms":[77]},
-    {"id":110,"term":"Pitch Deck","category":"Shark Tank","level":"Intermediate","definition":"Investor presentation","detailed":"10-15 slides covering business","example":"Problem, solution, market, team","keywords":"pitch deck presentation","relatedTerms":[6]},
-    {"id":111,"term":"Accelerator","category":"Shark Tank","level":"Intermediate","definition":"Program helping startups grow","detailed":"Funding, mentorship, connections","example":"Join Y Combinator accelerator","keywords":"accelerator program startup","relatedTerms":[112]},
-    {"id":112,"term":"Incubator","category":"Shark Tank","level":"Intermediate","definition":"Organization nurturing early startups","detailed":"Resources and workspace","example":"Work from tech incubator","keywords":"incubator startup support","relatedTerms":[111]},
-    {"id":113,"term":"Convertible Note","category":"Shark Tank","level":"Advanced","definition":"Debt converting to equity","detailed":"Loan becoming stock later","example":"$100K note converts at Series A","keywords":"convertible note debt equity","relatedTerms":[114]},
-    {"id":114,"term":"SAFE","category":"Shark Tank","level":"Advanced","definition":"Simple Agreement for Future Equity","detailed":"Delays valuation to future round","example":"Invest now, convert at Series A","keywords":"safe agreement equity","relatedTerms":[113]},
-    {"id":115,"term":"Drag-Along Rights","category":"Shark Tank","level":"Advanced","definition":"Force minority to sell","detailed":"If majority sells","example":"Majority sells, minority must too","keywords":"drag along rights","relatedTerms":[116]},
-    {"id":116,"term":"Tag-Along Rights","category":"Shark Tank","level":"Advanced","definition":"Minority can join sale","detailed":"Protects minority shareholders","example":"If majority sells, minority can too","keywords":"tag along rights","relatedTerms":[115]},
-    {"id":117,"term":"Pro Rata Rights","category":"Shark Tank","level":"Advanced","definition":"Maintain ownership percentage","detailed":"Invest in future rounds","example":"Invest in Series B to keep 10%","keywords":"pro rata rights maintain","relatedTerms":[95]},
-    {"id":118,"term":"Option Pool","category":"Shark Tank","level":"Advanced","definition":"Shares reserved for employees","detailed":"Typically 10-20% of company","example":"Create 15% option pool","keywords":"option pool employee","relatedTerms":[92]},
-    {"id":119,"term":"Warrant","category":"Shark Tank","level":"Advanced","definition":"Right to buy stock at set price","detailed":"Sweetener for investors","example":"Warrants for 1000 shares at $10","keywords":"warrant option stock","relatedTerms":[113]},
-    {"id":120,"term":"Growth Hacking","category":"Shark Tank","level":"Advanced","definition":"Creative low-cost growth strategies","detailed":"Rapid experimentation","example":"Viral referral program","keywords":"growth hacking marketing","relatedTerms":[108]},
-    {"id":121,"term":"Retention Rate","category":"Shark Tank","level":"Intermediate","definition":"Percentage of customers kept","detailed":"100% minus churn","example":"Keep 90 of 100 = 90% retention","keywords":"retention rate customer","relatedTerms":[81]},
-    {"id":122,"term":"Freemium Model","category":"Shark Tank","level":"Intermediate","definition":"Free basic, paid premium","detailed":"Common SaaS strategy","example":"Free tier, $10/month premium","keywords":"freemium model pricing","relatedTerms":[79]},
-    {"id":123,"term":"SaaS","category":"Shark Tank","level":"Beginner","definition":"Software as a Service","detailed":"Cloud-based subscription software","example":"Netflix, Salesforce are SaaS","keywords":"saas software service","relatedTerms":[79]},
-    {"id":124,"term":"B2B","category":"Shark Tank","level":"Beginner","definition":"Business to Business","detailed":"Selling to other companies","example":"Salesforce sells to businesses","keywords":"b2b business enterprise","relatedTerms":[125]},
-    {"id":125,"term":"B2C","category":"Shark Tank","level":"Beginner","definition":"Business to Consumer","detailed":"Selling directly to end users","example":"Amazon sells to consumers","keywords":"b2c business consumer","relatedTerms":[124]},
-    {"id":126,"term":"Proof of Concept","category":"Shark Tank","level":"Intermediate","definition":"Demonstration of feasibility","detailed":"Shows idea can work","example":"Build prototype to prove concept","keywords":"proof concept poc demo","relatedTerms":[107]},
-    {"id":127,"term":"Working Capital","category":"Accounting","level":"Intermediate","definition":"Current assets minus current liabilities","detailed":"Short-term financial health","example":"$200K assets - $100K liabilities","keywords":"working capital liquidity","relatedTerms":[27,28]},
-    {"id":128,"term":"Fair Market Value","category":"Accounting","level":"Intermediate","definition":"Price at which an asset would change hands between willing parties","detailed":"Determined by market conditions and comparable transactions","example":"Valuation based on similar recent sales","keywords":"fair market value fmv","relatedTerms":[76]},
-    {"id":129,"term":"Deferred Tax Asset","category":"Accounting","level":"Advanced","definition":"Tax benefit arising from deductible temporary differences","detailed":"Recorded when taxable income is expected to be lower in future","example":"Carryforward losses creating deferred tax asset","keywords":"deferred tax dta","relatedTerms":[33]},
-    {"id":130,"term":"Interest Coverage Ratio","category":"Analysis","level":"Intermediate","definition":"EBIT divided by interest expense","detailed":"Measures ability to meet interest payments","example":"EBIT $200K, interest $50K = 4x coverage","keywords":"interest coverage ratio icr","relatedTerms":[40]},
-    {"id":131,"term":"Sunk Cost","category":"Economics","level":"Beginner","definition":"Past cost that cannot be recovered","detailed":"Should not affect future decision making","example":"Ignore sunk cost when evaluating new projects","keywords":"sunk cost decision","relatedTerms":[73]},
-    {"id":132,"term":"Asset Allocation","category":"Investing","level":"Beginner","definition":"Distribution of investments across asset classes","detailed":"Balance between stocks, bonds, cash to manage risk","example":"60% equity, 30% bonds, 10% cash","keywords":"asset allocation portfolio","relatedTerms":[141]},
-    {"id":133,"term":"Index Fund","category":"Investing","level":"Beginner","definition":"Fund that tracks a market index","detailed":"Passive fund with low fees","example":"Invest in an S&P 500 index fund","keywords":"index fund passive","relatedTerms":[12]},
-    {"id":134,"term":"Yield Curve","category":"Economics","level":"Intermediate","definition":"Graph of interest rates across maturities","detailed":"Used to gauge economic expectations and recession risk","example":"Inverted yield curve can signal recession risk","keywords":"yield curve rates","relatedTerms":[23]},
-    {"id":135,"term":"Credit Score","category":"Personal Finance","level":"Beginner","definition":"Numeric evaluation of creditworthiness","detailed":"Affects loan approval and interest rates","example":"Higher credit score leads to lower rates","keywords":"credit score fico","relatedTerms":[19]},
-    {"id":136,"term":"Escrow","category":"Real Estate","level":"Intermediate","definition":"Third-party holding of funds until conditions met","detailed":"Common in property transactions to secure payment","example":"Escrow holds funds until title is clear","keywords":"escrow closing","relatedTerms":[20]},
-    {"id":137,"term":"Mortgage Amortization","category":"Real Estate","level":"Intermediate","definition":"Schedule of periodic mortgage payments","detailed":"Shows principal vs interest over loan life","example":"Amortization schedule for 30-year loan","keywords":"mortgage amortization schedule","relatedTerms":[19]},
-    {"id":138,"term":"Repo Rate","category":"GST & Taxation","level":"Intermediate","definition":"Rate at which RBI lends to banks","detailed":"Key policy rate influencing borrowing costs","example":"RBI raises repo rate to curb inflation","keywords":"repo rate rbi","relatedTerms":[15]},
-    {"id":139,"term":"KYC","category":"GST & Taxation","level":"Beginner","definition":"Know Your Customer identity verification","detailed":"Mandatory for financial account opening","example":"Submit ID and address proof for KYC","keywords":"kyc compliance","relatedTerms":[140]},
-    {"id":140,"term":"AML","category":"GST & Taxation","level":"Advanced","definition":"Anti-money-laundering compliance rules","detailed":"Processes to detect and prevent illicit funds","example":"Monitor suspicious transactions for AML compliance","keywords":"aml anti money laundering","relatedTerms":[139]},
-    {"id":141,"term":"Market Capitalization","category":"Investing","level":"Beginner","definition":"Company value equal to share price times shares","detailed":"Indicates company size and market value","example":"Company market cap = share price x shares outstanding","keywords":"market capitalization mcap","relatedTerms":[10]},
-    {"id":142,"term":"Beta","category":"Analysis","level":"Intermediate","definition":"Measure of a stock's volatility vs market","detailed":"Beta >1 more volatile than market; <1 less volatile","example":"Beta 1.3 means 30% more volatile than market","keywords":"beta volatility","relatedTerms":[141]},
-    {"id":143,"term":"Sharpe Ratio","category":"Analysis","level":"Advanced","definition":"Risk-adjusted return metric","detailed":"Excess return divided by standard deviation of returns","example":"Higher Sharpe indicates better risk-adjusted performance","keywords":"sharpe ratio risk adjusted","relatedTerms":[109]},
-    {"id":144,"term":"Dividend Yield","category":"Investing","level":"Beginner","definition":"Annual dividend divided by share price","detailed":"Shows cash return on investment","example":"$2 dividend on $50 share = 4% yield","keywords":"dividend yield payout","relatedTerms":[10]},
-    {"id":145,"term":"Treasury Bill","category":"Investing","level":"Beginner","definition":"Short-term government debt security","detailed":"Typically issued with maturities up to 1 year","example":"Buy 91-day T-bill at discount","keywords":"treasury bill t-bill","relatedTerms":[145]},
-    {"id":146,"term":"Forex Spot Rate","category":"International Trade","level":"Intermediate","definition":"Exchange rate for immediate currency delivery","detailed":"Used for immediate FX transactions","example":"Spot EUR/USD rate today","keywords":"forex spot rate","relatedTerms":[147]},
-    {"id":147,"term":"Currency Pair","category":"International Trade","level":"Beginner","definition":"Two currencies quoted against each other","detailed":"Major, minor, exotic pairs used in FX markets","example":"EUR/USD is a major currency pair","keywords":"currency pair forex","relatedTerms":[146]},
-    {"id":148,"term":"Lock-in Period","category":"Personal Finance","level":"Beginner","definition":"Minimum time before withdrawal allowed","detailed":"Common for certain investment products","example":"FD with 1-year lock-in period","keywords":"lock-in period withdrawal","relatedTerms":[149]},
-    {"id":149,"term":"SIP","category":"Personal Finance","level":"Beginner","definition":"Systematic Investment Plan investing monthly","detailed":"Disciplined way to invest in mutual funds","example":"Invest ₹5,000 monthly via SIP","keywords":"sip systematic investment plan","relatedTerms":[132]},
-    {"id":150,"term":"Nominee","category":"Personal Finance","level":"Beginner","definition":"Person designated to receive assets on death","detailed":"Ensures smooth transfer of financial assets","example":"Assign nominee for bank account","keywords":"nominee beneficiary","relatedTerms":[21]},
-    {"id":151,"term":"Business Valuation Multiples","category":"Shark Tank","level":"Advanced","definition":"Ratios like EV/EBITDA used in valuation","detailed":"Quick comparative valuation metrics","example":"Use EV/EBITDA to compare similar companies","keywords":"valuation multiples ev ebitda","relatedTerms":[6]},
-    {"id":152,"term":"Convertible Preference","category":"Shark Tank","level":"Advanced","definition":"Preferred stock that converts to common shares","detailed":"Provides downside protection with upside conversion","example":"Preferred shares convert at IPO","keywords":"convertible preference preferred","relatedTerms":[113]},
-    {"id":153,"term":"Beta Testing","category":"Shark Tank","level":"Beginner","definition":"Product testing by real users before launch","detailed":"Collect feedback to fix issues pre-launch","example":"Invite early users for beta testing","keywords":"beta testing product","relatedTerms":[126]},
-    {"id":154,"term":"Unit Test","category":"Shark Tank","level":"Beginner","definition":"Small automated code tests for a unit of logic","detailed":"Ensures individual functions behave correctly","example":"Write unit tests for utility functions","keywords":"unit test code testing","relatedTerms":[153]},
-    {"id":155,"term":"Burn Multiple","category":"Shark Tank","level":"Intermediate","definition":"Net burn divided by net new ARR","detailed":"Measures capital efficiency of growth","example":"Burn multiple 2 means $2 spent per $1 of ARR","keywords":"burn multiple capital efficiency","relatedTerms":[8]},
-    {"id":156,"term":"Payment Gateway","category":"Investing","level":"Intermediate","definition":"Service enabling online payments","detailed":"Processes customer payments for merchants","example":"Integrate payment gateway to accept cards","keywords":"payment gateway online payments","relatedTerms":[12]}
-  ],
-  videos: [
-    {"id":1,"category":"Accounting","title":"Understanding Balance Sheets","description":"Learn to read balance sheets","searchQuery":"Balance Sheet explained"},
-    {"id":2,"category":"Accounting","title":"Income Statement Explained","description":"Master income statements","searchQuery":"Income Statement tutorial"},
-    {"id":3,"category":"Investing","title":"Stock Market Basics","description":"Learn stock market fundamentals","searchQuery":"Stock market basics"},
-    {"id":4,"category":"Investing","title":"Understanding ETFs","description":"Complete ETF guide","searchQuery":"ETF investing explained"}
-  ],
-  qna: [
-    {"id":1,"category":"Getting Started","question":"What is the difference between accounting and bookkeeping?","answer":"Bookkeeping is daily recording. Accounting is analyzing that data for insights."},
-    {"id":2,"category":"Getting Started","question":"How do I start investing with a small amount?","answer":"Start with low-cost index funds or ETFs. Use dollar-cost averaging."},
-    {"id":3,"category":"Financial Statements","question":"Why is cash flow more important than profit?","answer":"Companies can be profitable but run out of cash. Cash flow shows actual money movement."},
-    {"id":4,"category":"Investing","question":"What is the difference between stocks and bonds?","answer":"Stocks are ownership equity. Bonds are loans with fixed income. Stocks have higher risk and return."}
-  ]
-};
-
-let FINANCIAL_DATA = JSON.parse(JSON.stringify(BASE_FINANCIAL_DATA));
-
-// If you generated a large set using the provided generator and saved it as generated_financial_terms.json
-// next to this file, this block will attempt to load and merge it automatically.
-// In a browser environment the bundler should handle importing JSON; this fallback uses dynamic loading when possible.
-
-(function tryMergeGenerated() {
-  // Node.js loading (used during build or server-side)
-  try {
-    // eslint-disable-next-line no-undef
-    if (typeof require === 'function') {
-      const path = require('path');
-      const fs = require('fs');
-      const genPath = path.join(__dirname, 'generated_financial_terms.json');
-      if (fs.existsSync(genPath)) {
-        const raw = fs.readFileSync(genPath, 'utf8');
-        const arr = JSON.parse(raw);
-        if (Array.isArray(arr) && arr.length) {
-          // append without modifying original objects
-          FINANCIAL_DATA.terms = FINANCIAL_DATA.terms.concat(arr);
-        }
-      }
-    }
-  } catch (e) {
-    // silent fallback; bundlers or browsers may not support fs/require
+{
+  "name": "finlearn1-data-server",
+  "version": "1.0.0",
+  "description": "Serve FINANCIAL_DATA JSON for FinLearn app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "NODE_ENV=development node server.js"
+  },
+  "author": "FinLearn",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
   }
+}
+// server.js
+// Start -> reads financial_data.json and exposes it at /financial_data.json
+// Usage: npm install && npm start
 
-  // Browser / bundler friendly: attempt to read global variable injected by build step
-  try {
-    // If your build process injects window.GENERATED_FINANCIAL_TERMS (e.g., via webpack DefinePlugin),
-    // this will merge them at runtime.
-    if (typeof window !== 'undefined' && Array.isArray(window.GENERATED_FINANCIAL_TERMS) && window.GENERATED_FINANCIAL_TERMS.length) {
-      FINANCIAL_DATA.terms = FINANCIAL_DATA.terms.concat(window.GENERATED_FINANCIAL_TERMS);
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+
+const PORT = process.env.PORT || 3000;
+const DATA_FILE = path.join(__dirname, 'financial_data.json');
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('FinLearn data server is running. Endpoint: /financial_data.json');
+});
+
+app.get('/financial_data.json', (req, res) => {
+  fs.readFile(DATA_FILE, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading JSON file:', err);
+      return res.status(500).json({ error: 'Unable to load data file' });
     }
-  } catch (e) {
-    // ignore
-  }
-})();
+    try {
+      const json = JSON.parse(data);
+      res.json(json);
+    } catch (parseErr) {
+      console.error('JSON parse error:', parseErr);
+      res.status(500).json({ error: 'Invalid JSON file' });
+    }
+  });
+});
 
-// Final export — unchanged schema and ready to import into your React app.
-export default FINANCIAL_DATA;
+app.listen(PORT, () => {
+  console.log('--- START ---');
+  console.log(`FinLearn data server listening on http://localhost:${PORT}`);
+  console.log(`Serving file: ${DATA_FILE}`);
+  console.log('--- END ---');
+});
