@@ -1,1 +1,19 @@
-# learning-project
+- README.md
+- content/
+- terms.json                 (main array or split into pages)
+- terms-0001.json            (optional chunked files if >1000)
+- public/                      (generated static site files)
+- src/
+- index.html
+- css/
+- js/
+- app.js
+- search.js
+- render.js
+- scripts/
+- build_index.py             (optional: preprocess JSON into search index)
+- chunk_terms.py             (split large JSON into smaller files)
+- assets/
+- thumbnails/
+- .github/workflows/
+- deploy.yml                 (optional GitHub Actions for build/deploy)
